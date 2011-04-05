@@ -161,7 +161,6 @@
 				1E4B6D0110DEDF3000B2CD45 /* PBXTargetDependency */,
 				1E4B6CFF10DEDF3000B2CD45 /* PBXTargetDependency */,
 				1E4B6CFD10DEDF3000B2CD45 /* PBXTargetDependency */,
-				1E4B6CFB10DEDF3000B2CD45 /* PBXTargetDependency */,
 				1E4B6CF910DEDF3000B2CD45 /* PBXTargetDependency */,
 				1E4B6CF710DEDF3000B2CD45 /* PBXTargetDependency */,
 			);
@@ -184,13 +183,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1E4F577D10DEA13F00381953;
 			remoteInfo = CrabEmu;
-		};
-		1E4B6CFA10DEDF3000B2CD45 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1E07AE3C10373EBC00B9EE89 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1E4F577610DEA13100381953;
-			remoteInfo = BSNES;
 		};
 		1E4B6CFC10DEDF3000B2CD45 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -849,11 +841,6 @@
 			isa = PBXTargetDependency;
 			target = 1E4F577D10DEA13F00381953 /* CrabEmu */;
 			targetProxy = 1E4B6CF810DEDF3000B2CD45 /* PBXContainerItemProxy */;
-		};
-		1E4B6CFB10DEDF3000B2CD45 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1E4F577610DEA13100381953 /* BSNES */;
-			targetProxy = 1E4B6CFA10DEDF3000B2CD45 /* PBXContainerItemProxy */;
 		};
 		1E4B6CFD10DEDF3000B2CD45 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
