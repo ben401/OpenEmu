@@ -23,6 +23,9 @@
 
 extern int YM2612Init(double clock, int rate);
 extern int YM2612ResetChip(void);
+/* OpenEmu change
+extern void YM2612Update(long int *buffer, int length);
+ */
 extern void YM2612Update(int *buffer, int length);
 extern void YM2612Write(unsigned int a, unsigned int v);
 extern unsigned int YM2612Read(void);

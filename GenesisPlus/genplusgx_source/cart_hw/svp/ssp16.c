@@ -219,6 +219,9 @@
 #define IJind  (((op>>6)&4)|(op&3))
 
 #define GET_PC() (PC - (unsigned short *)svp->iram_rom)
+/* OpenEmu change
+#define GET_PPC_OFFS() ((unsigned int)PC - (unsigned int)svp->iram_rom - 2)
+*/
 #define GET_PPC_OFFS() ((uintptr_t)PC - (uintptr_t)svp->iram_rom - 2)
 #define SET_PC(d) PC = (unsigned short *)svp->iram_rom + d
 
