@@ -157,6 +157,7 @@
 			buildPhases = (
 			);
 			dependencies = (
+				B5893082135218DC005ADD86 /* PBXTargetDependency */,
 				1E4B6D0310DEDF3000B2CD45 /* PBXTargetDependency */,
 				1E4B6D0110DEDF3000B2CD45 /* PBXTargetDependency */,
 				1E4B6CFF10DEDF3000B2CD45 /* PBXTargetDependency */,
@@ -484,6 +485,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 1BEF2CFD116854650090F72B;
 			remoteInfo = OpenEmuDebugHelperAppApp;
+		};
+		B5893081135218DC005ADD86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E07AE3C10373EBC00B9EE89 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E4F577610DEA13100381953;
+			remoteInfo = BSNES;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -976,6 +984,11 @@
 			isa = PBXTargetDependency;
 			target = 1E4F582110DEA78100381953 /* Build All Emulators */;
 			targetProxy = 1E4F583510DEA78E00381953 /* PBXContainerItemProxy */;
+		};
+		B5893082135218DC005ADD86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E4F577610DEA13100381953 /* BSNES */;
+			targetProxy = B5893081135218DC005ADD86 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

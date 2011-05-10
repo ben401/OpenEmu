@@ -8,11 +8,11 @@ void BSXCartridge::init() {
 void BSXCartridge::load() {
   sram.map(allocate<uint8>(32 * 1024, 0xff), 32 * 1024);
   sram.write_protect(false);
-  cartridge.nvram.append(Cartridge::NonVolatileRAM( "bss", sram.data(), sram.size() ));
+  cartridge.nvram.append(Cartridge::NonVolatileRAM( ".bss", sram.data(), sram.size() ));
 
   psram.map(allocate<uint8>(512 * 1024, 0xff), 512 * 1024);
   psram.write_protect(false);
-  cartridge.nvram.append(Cartridge::NonVolatileRAM( "bsp", psram.data(), psram.size() ));
+  cartridge.nvram.append(Cartridge::NonVolatileRAM( ".bsp", psram.data(), psram.size() ));
 }
 
 void BSXCartridge::unload() {
@@ -32,6 +32,8 @@ void BSXCartridge::reset() {
 uint8 BSXCartridge::memory_access(bool write, Memory &memory, unsigned addr, uint8 data) {
   if(write == 0) return memory_read(memory, addr);
   memory_write(memory, addr, data);
+
+  return 0; // FIXME: Can it reach here?
 }
 
 uint8 BSXCartridge::memory_read(Memory &memory, unsigned addr) {

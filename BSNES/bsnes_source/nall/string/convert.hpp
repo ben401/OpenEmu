@@ -3,7 +3,7 @@
 
 namespace nall {
 
-static inline char* strlower(char *str) {
+inline char* strlower(char *str) {
   if(!str) return 0;
   int i = 0;
   while(str[i]) {
@@ -13,7 +13,7 @@ static inline char* strlower(char *str) {
   return str;
 }
 
-static inline char* strupper(char *str) {
+inline char* strupper(char *str) {
   if(!str) return 0;
   int i = 0;
   while(str[i]) {
@@ -23,7 +23,7 @@ static inline char* strupper(char *str) {
   return str;
 }
 
-static inline char* strtr(char *dest, const char *before, const char *after) {
+inline char* strtr(char *dest, const char *before, const char *after) {
   if(!dest || !before || !after) return dest;
   int sl = strlen(dest), bsl = strlen(before), asl = strlen(after);
 
@@ -44,7 +44,7 @@ inline string& string::lower() { nall::strlower(data); return *this; }
 inline string& string::upper() { nall::strupper(data); return *this; }
 inline string& string::transform(const char *before, const char *after) { nall::strtr(data, before, after); return *this; }
 
-static inline uintmax_t hex(const char *str) {
+inline uintmax_t hex(const char *str) {
   if(!str) return 0;
   uintmax_t result = 0;
 
@@ -64,13 +64,16 @@ static inline uintmax_t hex(const char *str) {
   return result;
 }
 
-static inline intmax_t integer(const char *str) {
+inline intmax_t integer(const char *str) {
   if(!str) return 0;
   intmax_t result = 0;
   bool negate = false;
 
-  //check for negation
-  if(*str == '-') {
+  //check for sign
+  if(*str == '+') {
+    negate = false;
+    str++;
+  } else if(*str == '-') {
     negate = true;
     str++;
   }
@@ -85,7 +88,7 @@ static inline intmax_t integer(const char *str) {
   return !negate ? result : -result;
 }
 
-static inline uintmax_t decimal(const char *str) {
+inline uintmax_t decimal(const char *str) {
   if(!str) return 0;
   uintmax_t result = 0;
 
@@ -99,7 +102,7 @@ static inline uintmax_t decimal(const char *str) {
   return result;
 }
 
-static inline uintmax_t binary(const char *str) {
+inline uintmax_t binary(const char *str) {
   if(!str) return 0;
   uintmax_t result = 0;
 
@@ -117,39 +120,8 @@ static inline uintmax_t binary(const char *str) {
   return result;
 }
 
-static inline double fp(const char *str) {
-  if(!str) return 0.0;
-  bool negate = false;
-
-  //check for negation
-  if(*str == '-') {
-    negate = true;
-    str++;
-  }
-
-  intmax_t result_integral = 0;
-  while(*str) {
-    uint8_t x = *str++;
-    if(x >= '0' && x <= '9') x -= '0';
-    else if(x == '.' || x == ',') break;  //break loop and read fractional part
-    else return (double)result_integral;  //invalid value, assume no fractional part
-    result_integral = result_integral * 10 + x;
-  }
-
-  intmax_t result_fractional = 0;
-  while(*str) {
-    uint8_t x = *str++;
-    if(x >= '0' && x <= '9') x -= '0';
-    else break;  //stop at first invalid character
-    result_fractional = result_fractional * 10 + x;
-  }
-
-  //calculate fractional portion
-  double result = (double)result_fractional;
-  while((uintmax_t)result > 0) result /= 10.0;
-  result += (double)result_integral;
-
-  return !negate ? result : -result;
+inline double fp(const char *str) {
+   return strtod(str, NULL);
 }
 
 }

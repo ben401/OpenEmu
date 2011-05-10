@@ -27,8 +27,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import <GameCore.h>
-#include <base.hpp>
-#include "BSNESInterface.h"
 
 #define MAC_MAX_PLAYERS 8
 #define SNES_CONTROL_COUNT 12
@@ -39,12 +37,9 @@ extern NSString *BSNESEmulatorNames[];
 
 @interface BSNESGameEmu : GameCore
 {
-    uint32    controlPad[MAC_MAX_PLAYERS];
     UInt16 *soundBuffer;
     unsigned char *videoBuffer;
-    BSNESInterface *interface;
-    //SNES::System *system;
+    int16_t pad[2][12];
 }
-//- (void) reportControlPad: (int) padID withFlags: (uint32) flags;
 
 @end

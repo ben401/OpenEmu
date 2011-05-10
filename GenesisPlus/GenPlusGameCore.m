@@ -134,6 +134,11 @@ void openemu_input_UpdateEmu(void)
     return YES;
 }
 
+- (NSTimeInterval)frameInterval
+{
+	return vdp_pal ? 50 : 60;
+}
+
 - (void)resetEmulation
 {
     system_reset();
